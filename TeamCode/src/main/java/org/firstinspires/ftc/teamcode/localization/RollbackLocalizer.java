@@ -67,7 +67,6 @@ public class RollbackLocalizer implements SettableLocalizer {
         this.setCurrentPose(currentPose);
     }
 
-    @Override
     public void setCurrentPose(Pose2d currentPose) {
         this.poseDiffs = new HashMap<>();
         this.currentPose = currentPose;
@@ -76,7 +75,6 @@ public class RollbackLocalizer implements SettableLocalizer {
             ((SettableLocalizer) this.sourceLocalizer).setCurrentPose(currentPose);
     }
 
-    @Override
     public Twist2dDual<Time> update() {
         Twist2dDual<Time> localizerUpdate = this.sourceLocalizer.update();
         currentPose = currentPose.plus(localizerUpdate.value());

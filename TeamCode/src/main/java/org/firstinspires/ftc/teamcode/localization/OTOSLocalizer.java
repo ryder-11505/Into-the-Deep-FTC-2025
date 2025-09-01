@@ -58,13 +58,11 @@ public class OTOSLocalizer implements SettableLocalizer {
         return new SparkFunOTOS.Pose2D(pose.position.x, pose.position.y, pose.heading.toDouble());
     }
 
-    @Override
     public void setCurrentPose(Pose2d pose) {
         lastPose = pose;
         otos.setPosition(RRPoseToOTOSPose(pose));
     }
 
-    @Override
     public Twist2dDual<Time> update() {
         SparkFunOTOS.Pose2D otosPose = new SparkFunOTOS.Pose2D();
         SparkFunOTOS.Pose2D otosVel = new SparkFunOTOS.Pose2D();
